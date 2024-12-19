@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Продаж офісної техніки</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .card-body{
+            text-align: center;
+        }
+
+        .card-img-top {
+            object-fit: contain;
+            height: 200px;
+            width: 100%;
+        }
+
+        .btn-group {
+            text-align: center;
+        }
+
+        .btn-black {
+            background-color: rgb(54, 54, 54);
+            color: white;
+            border: none;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .btn-black:hover {
+            background-color: #242424;
+            color: #fff;
+        }
+
+        .new-arrival {
+            color: red;
+            font-weight: bold;
+            font-size: 0.5rem;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html" class="active">Каталог</a></li>
+            <li><a href="galery.html">Галерея зображень</a></li>
+            <li><a href="register.html">Реєстрація</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container my-4">
+            <h1 class="text-center mb-4">Каталог офісної техніки</h1>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                <!-- Категорія 1 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../media/printers.jpg" class="card-img-top" alt="Принтери">
+                        <div class="card-body">
+                            <h5 class="card-title">Принтери</h5>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-black">Лазерні принтери</button>
+                                <button class="btn btn-black">Струменеві принтери</button>
+                                <button class="btn btn-black">МФУ <span class="new-arrival">новинка</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категорія 2 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../media/scanners.png" class="card-img-top" alt="Сканери">
+                        <div class="card-body">
+                            <h5 class="card-title">Сканери</h5>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-black">Планшетні сканери</button>
+                                <button class="btn btn-black">Протяжні сканери <span class="new-arrival">новинка</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категорія 3 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../media/projectors.jpg" class="card-img-top" alt="Проєктори">
+                        <div class="card-body">
+                            <h5 class="card-title">Проєктори</h5>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-black">LED проєктори</button>
+                                <button class="btn btn-black">Лазерні проєктори <span class="new-arrival">новинка</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Категорія 4 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="../media/copiers.jpg" class="card-img-top" alt="Копіювальні пристрої">
+                        <div class="card-body">
+                            <h5 class="card-title">Копіювальні пристрої</h5>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-black">Чорно-білі</button>
+                                <button class="btn btn-black">Кольорові <span class="new-arrival">новинка</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script src="../js/scripts.js"></script>
+
+</body>
+
+</html>

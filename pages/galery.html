@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея зображень - Продаж офісної техніки</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .gallery-img {
+            /* filter: blur(2px); */
+            object-fit: contain;
+            height: 200px;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html">Каталог</a></li>
+            <li><a href="galery.html" class="active">Галерея зображень</a></li>
+            <li><a href="register.html">Реєстрація</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container my-4">
+            <h1 class="text-center mb-4">Галерея зображень</h1>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <!-- Зображення 1 -->
+                <div class="col gallery-item">
+                    <a href="../media/printers.jpg" target="_blank">
+                        <img src="../media/printers.jpg" alt="Принтер" class="gallery-img">
+                    </a>
+                </div>
+                <!-- Зображення 2 -->
+                <div class="col gallery-item">
+                    <a href="../media/scanners.png" target="_blank">
+                        <img src="../media/scanners.png" alt="Сканер" class="gallery-img">
+                    </a>
+                </div>
+                <!-- Зображення 3 -->
+                <div class="col gallery-item">
+                    <a href="../media/projectors.jpg" target="_blank">
+                        <img src="../media/projectors.jpg" alt="Проєктор" class="gallery-img">
+                    </a>
+                </div>
+                <!-- Зображення 4 -->
+                <div class="col gallery-item">
+                    <a href="../media/copiers.jpg" target="_blank">
+                        <img src="../media/copiers.jpg" alt="Копіювальний пристрій" class="gallery-img">
+                    </a>
+                </div>
+                <!-- Зображення 5 -->
+                <div class="col gallery-item">
+                    <a href="../media/accessories.jpg" target="_blank">
+                        <img src="../media/accessories.jpg" alt="Аксесуари" class="gallery-img">
+                    </a>
+                </div>
+                <!-- Зображення 6 -->
+                <div class="col gallery-item">
+                    <a href="../media/furniture.jpg" target="_blank">
+                        <img src="../media/furniture.jpg" alt="Офісні меблі" class="gallery-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

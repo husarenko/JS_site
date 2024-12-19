@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"CONSUMERS STANDARTS" - Продаж офісної техніки</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .slider-dots {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-30%);
+            display: flex;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html">Каталог</a></li>
+            <li><a href="galery.html">Галерея зображень</a></li>
+            <li><a href="register.html">Реєстрація</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="main-content">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="../media/slide1.jpg" alt="Slide 1"></div>
+                    <div class="slide"><img src="../media/slide2.jpg" alt="Slide 2"></div>
+                    <div class="slide"><img src="../media/slide3.jpg" alt="Slide 3"></div>
+                </div>
+                <div class="slider-dots">
+                    <div class="dot" onclick="changeSlide(0)"></div>
+                    <div class="dot" onclick="changeSlide(1)"></div>
+                    <div class="dot" onclick="changeSlide(2)"></div>
+                </div>
+            </div>
+
+            <section>
+                <div style="text-align: center;"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px; text-align: ce;"></div>
+                <p>Вітаємо вас на нашому сайті!<br><br>Тут ви зможете знайти для вашого офісу усе необхідне обладнання, гарнітуру, техніку, ресури до техніки та багато іншого!</p>
+                <ul style="text-align: center; list-style-type: none;">
+                    <li><a href="news.html">Статті</a></li>
+                    <li><a href="catalogue.html">Каталог</a></li>
+                    <li><a href="galery.html">Галерея зображень</a></li>
+                    <li><a href="register.html">Реєстрація</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function changeSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        updateSlider();
+    </script>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

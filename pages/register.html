@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація - Продаж офісної техніки</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html">Каталог</a></li>
+            <li><a href="galery.html">Галерея зображень</a></li>
+            <li><a href="register.html" class="active">Реєстрація</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container my-4">
+            <h1 class="text-center mb-4">Реєстрація</h1>
+            <form action="#" method="post">
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Прізвище</label>
+                    <input type="text" class="form-control" id="surname" name="surname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">Ім’я</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Адреса електронної пошти</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Пароль</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">Адреса вашого сайту</label>
+                    <input type="url" class="form-control" id="website" name="website" value="http://" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Виберіть стать</label>
+                    <select class="form-control" id="gender" name="gender" required>
+                        <option value="male">Чоловік</option>
+                        <option value="female">Жінка</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Дата народження</label>
+                    <input type="date" class="form-control" id="dob" name="dob" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Політика користувача:</label>
+                    <div>
+                        <input type="checkbox" id="dish1" name="dishes" value="pasta">
+                        <label for="dish1">Погоджуюсь</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dish2" name="dishes" value="sushi">
+                        <label for="dish2">Так</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="bio" class="form-label">Про себе</label>
+                    <textarea class="form-control" id="bio" name="bio" rows="3" required></textarea>
+                </div>
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-dark">Зареєструватися</button>
+                    <button type="reset" class="btn btn-secondary">Очистити форму</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

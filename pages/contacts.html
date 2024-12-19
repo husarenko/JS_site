@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - Продаж офісної техніки</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact-info h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .map-container {
+            margin: 20px 0;
+            text-align: center;
+            height: 400px;
+        }
+
+        #map {
+            width: 100%;
+            height: 90%;
+        }
+
+        .locations-list {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .locations-list select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .location-details {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #242424;
+        }
+
+        .locations-list {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .locations-list select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .location-details {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html">Каталог</a></li>
+            <li><a href="galery.html">Галерея зображень</a></li>
+            <li><a href="register.html">Реєстрація</a></li>
+            <li><a href="contacts.html" class="active">Контакти</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container my-4">
+            <div class="contact-info">
+                <h2>Наша адреса</h2>
+                <p>вул. Офісна, 10, Київ, Україна</p>
+            </div>
+
+            <div class="map-container">
+                <h2>Як дістатися</h2>
+                <div id="map"></div>
+            </div>
+
+            <div class="locations-list">
+                <h2>Наші філіали</h2>
+                <select id="locations" onchange="fetchLocationDetails()">
+                    <option value="">Виберіть філіал</option>
+                    <!-- <option value="branch_1">Філіал 1</option>
+                    <option value="branch_2">Філіал 2</option>
+                    <option value="branch_3">Філіал 3</option> -->
+                </select>
+                <div class="location-details" id="location-details"></div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Залиште ваше питання</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ім'я</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ваше питання</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" onclick="submitForm()">Надіслати</button>
+                    </div>
+                </form>
+                <p id="response-message"></p>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="../js/scripts.js"></script>
+
+    <script>
+        function validatePhoneNumber(phone) {
+            const phoneRegex = /^\+380\d{9}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function submitForm() {
+            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!validatePhoneNumber(phone)) {
+                alert('Будь ласка, введіть номер телефону у форматі +380XXXXXXXXX');
+                return;
+            }
+
+            if (!name || !email || !message) {
+                alert('Будь ласка, заповніть всі поля.');
+                return;
+            }
+
+            setTimeout(function () {
+                const response = {
+                    status: "success",
+                    message: "Дякуємо за ваше повідомлення! Ми зв'яжемося з вами найближчим часом."
+                };
+
+                document.getElementById('response-message').innerHTML = `
+            <p>${response.message}</p>
+        `;
+
+                document.getElementById('contact-form').reset();
+            }, 1000);
+        }
+
+        let locations = [];
+        let map;
+        let marker;
+
+        fetch('locations.json')
+            .then(response => response.json())
+            .then(data => {
+                locations = data;
+                const selectElement = document.getElementById('locations');
+                data.forEach(location => {
+                    const option = document.createElement('option');
+                    option.value = location.id;
+                    option.textContent = location.name;
+                    selectElement.appendChild(option);
+                });
+
+                initMap();
+            });
+
+        function initMap() {
+            map = L.map('map').setView([50.439334, 30.565536], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            marker = L.marker([50.439334, 30.565536]).addTo(map);
+        }
+
+        function fetchLocationDetails() {
+            const locationId = document.getElementById('locations').value;
+            const locationDetailsDiv = document.getElementById('location-details');
+
+            if (locationId) {
+                const location = locations.find(loc => loc.id === locationId);
+                if (location) {
+                    locationDetailsDiv.innerHTML = `
+                        <h4>${location.name}</h4>
+                        <p>Адреса: ${location.address}</p>
+                        <p>Телефон: ${location.phone}</p>
+                        <p>Години роботи: ${location.hours}</p>
+                    `;
+                    updateMap(location.latitude, location.longitude);
+                }
+            } else {
+                locationDetailsDiv.innerHTML = '';
+            }
+        }
+
+        function updateMap(latitude, longitude) {
+            map.setView([latitude, longitude], 12);
+            marker.setLatLng([latitude, longitude]);
+        }
+    </script>
+</body>
+
+</html>

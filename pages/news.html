@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статті</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <header>
+        <div class="header" id="header">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+            <div class="logo">
+                <a href="index.html"><img src="../media/logo_wide.svg" alt="Logo" style="height: 60px;"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close-btn" onclick="toggleSidebar()">╳</button>
+        </div>
+        <ul>
+            <li><a href="news.html">Статті</a></li>
+            <li><a href="catalogue.html">Каталог</a></li>
+            <li><a href="galery.html">Галерея зображень</a></li>
+            <li><a href="register.html">Реєстрація</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </div>
+    <main>
+        <div class="main-content">
+            <h1 class="text-center mb-4">Статті</h1>
+            <article class="mb-4">
+                <h2><a href="news/news1.html" class="text-decoration-none">Як вибрати ідеальний принтер для офісу</a>
+                </h2>
+                <p>У цій статті ми розглянемо основні характеристики принтерів, на які слід звертати увагу при виборі
+                    для офісу. <a href="news/news1.html" class="btn btn-link p-0">>>> читати далі</a></p>
+                <a href="news/news1.html#comments" class="btn btn-link p-0">Перейти до коментарів</a>
+            </article>
+
+            <!-- Друга стаття -->
+            <article class="mb-4">
+                <h2><a href="news/news2.html" class="text-decoration-none">Як вибрати багатофункціональний пристрій для
+                        офісу</a></h2>
+                <p>МФУ стають все більш популярними у бізнес-середовищі. У цій статті ми розповімо, як правильно обрати
+                    багатофункціональний пристрій для офісу: на що звертати увагу при виборі, як правильно вибрати між
+                    лазерними та струменевими моделями, а також як МФУ може допомогти зекономити гроші. <a
+                        href="news/news2.html" class="btn btn-link p-0">>>> читати далі</a></p>
+                <a href="news/news2.html#comments" class="btn btn-link p-0">Перейти до коментарів</a>
+            </article>
+
+        </div>
+    </main>
+    <div class="footer">
+        <p>© 2024 CONSUMERS STANDARTS</p>
+    </div>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>
